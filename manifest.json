@@ -1,0 +1,219 @@
+{
+  "Actions": [
+    {
+      "Name": "Left-Half",
+      "Icon": "images/left-half",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.left-half",
+      "States": [{
+        "Image": "images/left-half",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Left-Half",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Right-Half",
+      "Icon": "images/right-half",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.right-half",
+      "States": [{
+        "Image": "images/right-half",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Right-Half",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Top-Left",
+      "Icon": "images/top-left",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.top-left",
+      "States": [{
+        "Image": "images/top-left",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Top-Left",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Top-Right",
+      "Icon": "images/top-right",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.top-right",
+      "States": [{
+        "Image": "images/top-right",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Top-Right",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Bottom-Left",
+      "Icon": "images/bottom-left",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.bottom-left",
+      "States": [{
+        "Image": "images/bottom-left",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Bottom-Left",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Bottom-Right",
+      "Icon": "images/bottom-right",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.bottom-right",
+      "States": [{
+        "Image": "images/bottom-right",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Bottom-Right",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "First-Third",
+      "Icon": "images/first-third",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.first-third",
+      "States": [{
+        "Image": "images/first-third",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "First-Third",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Center-Third",
+      "Icon": "images/center-third",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.center-third",
+      "States": [{
+        "Image": "images/center-third",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Center-Third",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Last-Third",
+      "Icon": "images/last-third",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.last-third",
+      "States": [{
+        "Image": "images/last-third",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Last-Third",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Top-Left-Sixth",
+      "Icon": "images/top-left-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.top-left-sixth",
+      "States": [{
+        "Image": "images/top-left-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Top-Left-Sixth",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Top-Center-Sixth",
+      "Icon": "images/top-center-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.top-center-sixth",
+      "States": [{
+        "Image": "images/top-center-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Top-Center-Sixth",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Top-Right-Sixth",
+      "Icon": "images/top-right-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.top-right-sixth",
+      "States": [{
+        "Image": "images/top-right-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Top-Right-Sixth",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Bottom-Left-Sixth",
+      "Icon": "images/bottom-left-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.bottom-left-sixth",
+      "States": [{
+        "Image": "images/bottom-left-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Bottom-Left-Sixth",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Bottom-Center-Sixth",
+      "Icon": "images/bottom-center-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.bottom-center-sixth",
+      "States": [{
+        "Image": "images/bottom-center-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Bottom-Center-Sixth",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Bottom-Right-Sixth",
+      "Icon": "images/bottom-right-sixth",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugin-rectangle.bottom-right-sixth",
+      "States": [{
+        "Image": "images/bottom-right-sixth",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Bottom-Right-Sixth",
+        "ShowTitle": false
+      }]
+    }      
+  ],
+  "SDKVersion": 2,
+  "Author": "Jacob FG",
+  "Category": "Rectangle",
+  "CategoryIcon": "images/left-half",
+  "Icon": "images/left-half",
+  "CodePath": "streamdeck-plugin-rectangle",
+  "Description": "Some description of what your plugin does",
+  "Name": "Rectangle",
+  "URL": "https://github.com/jacobfg/streamdeck-plugin-rectangle",
+  "Version": "0.1",
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion" : "10.11"
+    }
+  ],
+  "Software":
+    {
+        "MinimumVersion" : "4.1"
+    }
+}
