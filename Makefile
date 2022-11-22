@@ -1,7 +1,7 @@
 GO = go
 GOFLAGS =
-NAME = com.onamish.streamdeck-plugin-rectangle
-BINARY = streamdeck-plugin-rectangle
+BINARY = streamdeck-plugins-jacobfg
+NAME = com.onamish.$(BINARY)
 MAKEFILEDIR := $(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
 INSTALLDIR = "$(HOME)/Library/Application Support/com.elgato.StreamDeck/Plugins/$(NAME).sdPlugin"
 BUILDDIR = build

@@ -10,10 +10,15 @@ import (
 	"strings"
 
 	"github.com/samwho/streamdeck"
+	"github.com/wobsoriano/go-jxa"
+)
+
+var (
+	pluginBaseName string = "com.onamish.streamdeck-plugins-jacobfg"
 )
 
 func main() {
-	f, err := ioutil.TempFile("", "com.onamish.streamdeck-plugin-rectangle.log")
+	f, err := ioutil.TempFile("", pluginBaseName+".log")
 	if err != nil {
 		log.Fatalf("error creating temp file: %v", err)
 	}
@@ -61,7 +66,7 @@ func setup(client *streamdeck.Client) {
 
 	for _, actionName := range actionsNames {
 
-		action := client.Action("com.onamish.streamdeck-plugin-rectangle." + actionName)
+		action := client.Action(pluginBaseName + ".rectangle." + actionName)
 		action.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
 			log.Default().Printf("KeyDown: %+v", event)
 
@@ -72,6 +77,35 @@ func setup(client *streamdeck.Client) {
 			return nil
 		})
 	}
+
+	action := client.Action(pluginBaseName + ".google-meet.find-tab")
+	action.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+
+		code := `
+		(function() {
+			var chrome = Application('Google Chrome');
+			for (win of chrome.windows()) {
+			  var tabIndex =
+				win.tabs().findIndex(tab => tab.url().match(/meet.google.com/));
+			  if (tabIndex != -1) {
+				chrome.activate();
+				win.activeTabIndex = (tabIndex + 1);
+				win.index = 1;
+			  }
+			}
+		  })();
+			`
+		v, err := jxa.RunJXA(code)
+
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+
+		log.Default().Printf("Is dark mode: %s", v)
+
+		return nil
+	})
 }
 
 func callRectangle(name string) {

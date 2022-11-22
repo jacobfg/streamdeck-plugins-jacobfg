@@ -64,4 +64,4 @@ build
 release
 
 # End of https://www.gitignore.io/api/go,windows,visualstudiocode
-/streamdeck-plugin-rectangle
+/streamdeck-*
