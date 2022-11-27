@@ -21,7 +21,7 @@ var (
 	pluginBaseName       string        = "com.onamish.streamdeck-plugins-jacobfg"
 	neoShadeOpenCmd      string        = "-up!"
 	neoShadeCloseCmd     string        = "-dn!"
-	neoShadeStopCmd      string        = "-??!"
+	neoShadeStopCmd      string        = "-sp!"
 	neoShadeFavouriteCmd string        = "-gp!"
 	neoShadeTimeout      time.Duration = time.Second * 5
 )
