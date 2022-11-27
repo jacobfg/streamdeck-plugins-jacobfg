@@ -207,7 +207,49 @@
         "Title": "Googel Meet Active",
         "ShowTitle": false
       }]
-    }         
+    },
+    {
+      "Name": "Window Shutter Open",
+      "Icon": "images/shutter-open",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-open",
+      "PropertyInspectorPath": "actions/shutter_open.html",
+      "States": [{
+        "Image": "images/shutter-open",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Window Shutter Open",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Window Shutter Stop",
+      "Icon": "images/shutter-stop",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-stop",
+      "PropertyInspectorPath": "actions/shutter_stop.html",
+      "States": [{
+        "Image": "images/shutter-stop",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Window Shutter Stop",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Window Shutter Close",
+      "Icon": "images/shutter-close",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-close",
+      "PropertyInspectorPath": "actions/shutter_close.html",
+      "States": [{
+        "Image": "images/shutter-close",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Window Shutter Close",
+        "ShowTitle": false
+      }]
+    }
   ],
   "SDKVersion": 2,
   "Author": "JacobFG",
@@ -227,6 +269,6 @@
   ],
   "Software":
     {
-        "MinimumVersion" : "4.1"
+      "MinimumVersion" : "4.1"
     }
 }

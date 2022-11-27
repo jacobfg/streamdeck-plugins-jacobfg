@@ -3,18 +3,28 @@ package main
 import (
 	"bytes"
 	"context"
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"net"
 	"os"
 	"os/exec"
 	"strings"
+	"time"
 
 	"github.com/samwho/streamdeck"
 	"github.com/wobsoriano/go-jxa"
 )
 
 var (
-	pluginBaseName string = "com.onamish.streamdeck-plugins-jacobfg"
+	pluginBaseName   string = "com.onamish.streamdeck-plugins-jacobfg"
+	neoShadeOpenCmd  string = "211.178-00-gp!wt"
+	neoShadeCloseCmd string = "211.178-00-gp!wt"
+	neoShadeStopCmd  string = "211.178-00-gp!wt"
+	// neoShadeOpenAddr  string
+	// neoShadeCloseAddr string
+	// neoShadeStopAddr  string
 )
 
 func main() {
@@ -108,6 +118,71 @@ func setup(client *streamdeck.Client) {
 
 		return nil
 	})
+
+	shutterOpenAction := client.Action(pluginBaseName + ".shutter-open")
+	shutterOpenAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeOpenCmd)
+	})
+
+	shutterCloseAction := client.Action(pluginBaseName + ".shutter-close")
+	shutterCloseAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeCloseCmd)
+	})
+
+	shutterStopAction := client.Action(pluginBaseName + ".shutter-stop")
+	shutterStopAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeStopCmd)
+	})
+}
+
+type ShutterPropertyInspectorSettings struct {
+	Settings struct {
+		Address string `json:"address"`
+	} `json:"settings"`
+}
+
+func shutterAction(event streamdeck.Event, command string) error {
+
+	log.Default().Printf("Payload: %s", event.Payload)
+	payload := &ShutterPropertyInspectorSettings{}
+	err := json.Unmarshal(event.Payload, payload)
+	if err != nil {
+		log.Fatal(err.Error())
+		return err
+	}
+	log.Default().Printf("Address: %s", payload.Settings.Address)
+
+	con, err := net.DialTimeout("tcp", payload.Settings.Address, time.Second*5)
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		return err
+	}
+
+	defer con.Close()
+
+	_, err = con.Write([]byte(command))
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		return err
+	}
+
+	reply := make([]byte, 1024)
+
+	_, err = con.Read(reply)
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		return err
+	}
+
+	fmt.Println(string(reply))
+
+	return nil
 }
 
 func callRectangle(name string) {
