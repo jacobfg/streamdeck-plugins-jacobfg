@@ -18,13 +18,12 @@ import (
 )
 
 var (
-	pluginBaseName   string = "com.onamish.streamdeck-plugins-jacobfg"
-	neoShadeOpenCmd  string = "211.178-00-gp!wt"
-	neoShadeCloseCmd string = "211.178-00-gp!wt"
-	neoShadeStopCmd  string = "211.178-00-gp!wt"
-	// neoShadeOpenAddr  string
-	// neoShadeCloseAddr string
-	// neoShadeStopAddr  string
+	pluginBaseName       string        = "com.onamish.streamdeck-plugins-jacobfg"
+	neoShadeOpenCmd      string        = "-up!"
+	neoShadeCloseCmd     string        = "-dn!"
+	neoShadeStopCmd      string        = "-??!"
+	neoShadeFavouriteCmd string        = "-gp!"
+	neoShadeTimeout      time.Duration = time.Second * 5
 )
 
 func main() {
@@ -108,13 +107,13 @@ func setup(client *streamdeck.Client) {
 			}
 		})();
 		`
-		v, err := jxa.RunJXA(code)
+		_, err := jxa.RunJXA(code)
 
 		if err != nil {
 			log.Fatal(err.Error())
 		}
 
-		log.Default().Printf("Is dark mode: %s", v)
+		// log.Default().Printf("Is dark mode: %s", v)
 
 		return nil
 	})
@@ -136,11 +135,19 @@ func setup(client *streamdeck.Client) {
 		log.Default().Printf("KeyDown: %+v", event)
 		return shutterAction(event, neoShadeStopCmd)
 	})
+
+	shutterFavouriteAction := client.Action(pluginBaseName + ".shutter-favourite")
+	shutterFavouriteAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeFavouriteCmd)
+	})
 }
 
 type ShutterPropertyInspectorSettings struct {
 	Settings struct {
-		Address string `json:"address"`
+		Address   string `json:"address"`
+		ShadeId   string `json:"shadeId"`
+		MotorType string `json:"motorType"`
 	} `json:"settings"`
 }
 
@@ -153,21 +160,24 @@ func shutterAction(event streamdeck.Event, command string) error {
 		log.Fatal(err.Error())
 		return err
 	}
-	log.Default().Printf("Address: %s", payload.Settings.Address)
+	neoController := payload.Settings.Address
+	remoteCommand := payload.Settings.ShadeId + command + payload.Settings.MotorType
+	log.Default().Printf("Address: %s", neoController)
+	log.Default().Printf("Command: %s", remoteCommand)
 
-	con, err := net.DialTimeout("tcp", payload.Settings.Address, time.Second*5)
+	con, err := net.DialTimeout("tcp", neoController, neoShadeTimeout)
 
 	if err != nil {
-		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
 		return err
 	}
 
 	defer con.Close()
 
-	_, err = con.Write([]byte(command))
+	_, err = con.Write([]byte(remoteCommand))
 
 	if err != nil {
-		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
 		return err
 	}
 
@@ -176,7 +186,7 @@ func shutterAction(event streamdeck.Event, command string) error {
 	_, err = con.Read(reply)
 
 	if err != nil {
-		log.Default().Printf("Error connecting to %s: %v", payload.Settings.Address, err)
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
 		return err
 	}
 

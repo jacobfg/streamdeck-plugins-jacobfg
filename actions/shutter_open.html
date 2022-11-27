@@ -6,7 +6,7 @@
           content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
     <meta name=apple-mobile-web-app-capable content=yes>
     <meta name=apple-mobile-web-app-status-bar-style content=black>
-    <title>streamdeck-yeelight</title>
+    <title>streamdeck-plugins-jacobfg.shutter-open</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/barraider/streamdeck-easypi@latest/src/sdpi.css">
 </head>
 
@@ -25,6 +25,38 @@
                 onblur="setSettings()"
         >
     </div>
+    <div class="sdpi-item">
+        <label for="shadeId" class="sdpi-item-label">Shade ID</label>
+        <input
+                class="sdpi-item-value sdProperty"
+                id="shadeId"
+                placeholder="e.g. 211.178-00"
+                required
+                pattern="^([0-1][0-9][0-9]|2[0-5][0-5])\.([0-1][0-9][0-9]|2[0-5][0-5])-(0[0-9]|1[0-5])$"
+                onblur="setSettings()"
+        >
+    </div>
+    <div class="sdpi-item">
+        <label for="motorType" class="sdpi-item-label">Motor Type</label>
+        <select
+                class="sdpi-item-value sdProperty"
+                id="motorType"
+                value="wt"
+                required
+                onchange="setSettings()"
+        >
+            <option value="k1">A-OK version 1 (Motor code k1)</option>
+            <option value="k2">A-OK version 1 (Motor code k2)</option>
+            <option value="k2">Bofu - standard (Motor code bf)</option>
+            <option value="k2">Bofu - top-down, bottom-up (Motor code tb)</option>
+            <option value="vb">Bofu - vertical (Motor code vb)</option>
+            <option value="dy">Dooya Unidirectional (Motor code dy)</option>
+            <option value="no">NEO (Motor code no)</option>
+            <option value="nc">Nice (Motor code nc)</option>
+            <option value="rx">Raex (Motor code rx)</option>
+            <option value="by">Special Code Bofu Doya (Motor code by)</option>
+            <option value="wt">Wistar and Alpha (Motor code wt)</option>
+        </select>
 </div>
 
 <script src="https://cdn.jsdelivr.net/gh/barraider/streamdeck-easypi@latest/src/sdtools.common.js"></script>

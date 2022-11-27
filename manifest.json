@@ -249,6 +249,20 @@
         "Title": "Window Shutter Close",
         "ShowTitle": false
       }]
+    },
+    {
+      "Name": "Window Shutter Favourite",
+      "Icon": "images/shutter-favourite",
+      "SupportedInMultiActions": false,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-favourite",
+      "PropertyInspectorPath": "actions/shutter_favourite.html",
+      "States": [{
+        "Image": "images/shutter-favourite",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Window Shutter Favourite",
+        "ShowTitle": false
+      }]
     }
   ],
   "SDKVersion": 2,
