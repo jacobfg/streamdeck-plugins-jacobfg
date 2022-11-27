@@ -85,17 +85,19 @@ func setup(client *streamdeck.Client) {
 		code := `
 		(function() {
 			var chrome = Application('Google Chrome');
-			for (win of chrome.windows()) {
-			  var tabIndex =
-				win.tabs().findIndex(tab => tab.url().match(/meet.google.com/));
-			  if (tabIndex != -1) {
-				chrome.activate();
-				win.activeTabIndex = (tabIndex + 1);
-				win.index = 1;
-			  }
+			if (chrome.running()) {
+			  	for (win of chrome.windows()) {
+					var tabIndex =
+						win.tabs().findIndex(tab => tab.url().match(/meet.google.com/));
+					if (tabIndex != -1) {
+						chrome.activate();
+						win.activeTabIndex = (tabIndex + 1);
+						win.index = 1;
+					}
+			  	}
 			}
-		  })();
-			`
+		})();
+		`
 		v, err := jxa.RunJXA(code)
 
 		if err != nil {
