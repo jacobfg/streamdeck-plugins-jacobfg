@@ -3,18 +3,27 @@ package main
 import (
 	"bytes"
 	"context"
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"net"
 	"os"
 	"os/exec"
 	"strings"
+	"time"
 
 	"github.com/samwho/streamdeck"
 	"github.com/wobsoriano/go-jxa"
 )
 
 var (
-	pluginBaseName string = "com.onamish.streamdeck-plugins-jacobfg"
+	pluginBaseName       string        = "com.onamish.streamdeck-plugins-jacobfg"
+	neoShadeOpenCmd      string        = "-up!"
+	neoShadeCloseCmd     string        = "-dn!"
+	neoShadeStopCmd      string        = "-sp!"
+	neoShadeFavouriteCmd string        = "-gp!"
+	neoShadeTimeout      time.Duration = time.Second * 5
 )
 
 func main() {
@@ -98,16 +107,92 @@ func setup(client *streamdeck.Client) {
 			}
 		})();
 		`
-		v, err := jxa.RunJXA(code)
+		_, err := jxa.RunJXA(code)
 
 		if err != nil {
 			log.Fatal(err.Error())
 		}
 
-		log.Default().Printf("Is dark mode: %s", v)
+		// log.Default().Printf("Is dark mode: %s", v)
 
 		return nil
 	})
+
+	shutterOpenAction := client.Action(pluginBaseName + ".shutter-open")
+	shutterOpenAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeOpenCmd)
+	})
+
+	shutterCloseAction := client.Action(pluginBaseName + ".shutter-close")
+	shutterCloseAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeCloseCmd)
+	})
+
+	shutterStopAction := client.Action(pluginBaseName + ".shutter-stop")
+	shutterStopAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeStopCmd)
+	})
+
+	shutterFavouriteAction := client.Action(pluginBaseName + ".shutter-favourite")
+	shutterFavouriteAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		return shutterAction(event, neoShadeFavouriteCmd)
+	})
+}
+
+type ShutterPropertyInspectorSettings struct {
+	Settings struct {
+		Address   string `json:"address"`
+		ShadeId   string `json:"shadeId"`
+		MotorType string `json:"motorType"`
+	} `json:"settings"`
+}
+
+func shutterAction(event streamdeck.Event, command string) error {
+
+	log.Default().Printf("Payload: %s", event.Payload)
+	payload := &ShutterPropertyInspectorSettings{}
+	err := json.Unmarshal(event.Payload, payload)
+	if err != nil {
+		log.Fatal(err.Error())
+		return err
+	}
+	neoController := payload.Settings.Address
+	remoteCommand := payload.Settings.ShadeId + command + payload.Settings.MotorType
+	log.Default().Printf("Address: %s", neoController)
+	log.Default().Printf("Command: %s", remoteCommand)
+
+	con, err := net.DialTimeout("tcp", neoController, neoShadeTimeout)
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
+		return err
+	}
+
+	defer con.Close()
+
+	_, err = con.Write([]byte(remoteCommand))
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
+		return err
+	}
+
+	reply := make([]byte, 1024)
+
+	_, err = con.Read(reply)
+
+	if err != nil {
+		log.Default().Printf("Error connecting to %s: %v", neoController, err)
+		return err
+	}
+
+	fmt.Println(string(reply))
+
+	return nil
 }
 
 func callRectangle(name string) {

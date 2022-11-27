@@ -22,7 +22,7 @@ sdplugin: build
 	cp *.json $(SDPLUGINDIR)
 	cp $(BINARY) $(SDPLUGINDIR)
 	# cp *.html $(SDPLUGINDIR)
-	cp -r images $(SDPLUGINDIR)
+	cp -r images actions $(SDPLUGINDIR)
 
 install: uninstall sdplugin
 	mv $(SDPLUGINDIR) $(INSTALLDIR)

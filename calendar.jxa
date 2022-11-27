@@ -1,0 +1,40 @@
+(function() {
+    var calendar = Application("Calendar");
+    // calendar.reloadCalendars();
+
+    var name = "jacob.fleming-gale@domain.com.au";
+
+    var now = new(Date)
+
+    // console.log(name)
+
+    for (cal of calendar.calendars) {
+      console.log(cal)
+    }
+
+    
+    // var homeCal = calendar.calendars.whose({name})[0]
+
+    // var swHomeEvents = homeCal.events.whose({
+    //   _and: [
+    //     {startDate: {_greaterThan: now}},
+    //     {summary: {_beginsWith: "Example Event"}}
+    //   ]
+    // })
+
+    // var swEvents = swHomeEvents()
+    // console.log(swEvents);
+
+
+    // for (cal of calendar.calendars) {
+    //   console.log('Calendar: ' + cal.title());
+    // }
+    // for (win of chrome.windows()) {
+    //   var tabIndex =
+    //     win.tabs().findIndex(tab => tab.url().match(/meet.google.com/));
+    //   if (tabIndex != -1) {
+    //     win.activeTabIndex = (tabIndex + 1);
+    //     win.index = 1;
+    //   }
+    // }
+  })();
