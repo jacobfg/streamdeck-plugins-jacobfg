@@ -10,6 +10,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 	"time"
 
@@ -25,6 +26,13 @@ var (
 	neoShadeFavouriteCmd string        = "-gp!"
 	neoShadeTimeout      time.Duration = time.Second * 5
 )
+
+type AudioSettings struct {
+	Settings struct {
+		Input  string `json:"inputDevice,omitempty"`
+		Output string `json:"outputDevice,omitempty"`
+	} `json:"settings"`
+}
 
 func main() {
 	f, err := ioutil.TempFile("", pluginBaseName+".log")
@@ -118,6 +126,35 @@ func setup(client *streamdeck.Client) {
 		return nil
 	})
 
+	actionAudio := client.Action(pluginBaseName + ".audio")
+	actionAudio.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+
+		log.Default().Printf("Payload: %s", event.Payload)
+		payload := &AudioSettings{}
+		err := json.Unmarshal(event.Payload, payload)
+		if err != nil {
+			log.Fatal(err.Error())
+			return err
+		}
+
+		if payload.Settings.Input != "" {
+			cmd := exec.Command("/opt/homebrew/bin/SwitchAudioSource", "-t", "input", "-s", payload.Settings.Input)
+			if err := cmd.Run(); err != nil {
+				log.Fatal(err)
+			}
+		}
+
+		if payload.Settings.Output != "" {
+			cmd := exec.Command("/opt/homebrew/bin/SwitchAudioSource", "-t", "output", "-s", payload.Settings.Output)
+			if err := cmd.Run(); err != nil {
+				log.Fatal(err)
+			}
+		}
+
+		return nil
+	})
+
 	shutterOpenAction := client.Action(pluginBaseName + ".shutter-open")
 	shutterOpenAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
 		log.Default().Printf("KeyDown: %+v", event)
@@ -141,6 +178,35 @@ func setup(client *streamdeck.Client) {
 		log.Default().Printf("KeyDown: %+v", event)
 		return shutterAction(event, neoShadeFavouriteCmd)
 	})
+
+	sleepAction := client.Action(pluginBaseName + ".sleep")
+	sleepAction.RegisterHandler(streamdeck.KeyDown, func(ctx context.Context, client *streamdeck.Client, event streamdeck.Event) error {
+		log.Default().Printf("KeyDown: %+v", event)
+		log.Default().Printf("Payload: %s", event.Payload)
+
+		payload := &SleepPropertyInspector{Settings: SleepPropertyInspectorSettings{Duration: "5"}}
+		err := json.Unmarshal(event.Payload, payload)
+		if err != nil {
+			log.Fatal(err.Error())
+			return err
+		}
+		duration, err := strconv.ParseInt(payload.Settings.Duration, 10, 32)
+		if err != nil {
+			log.Fatal(err.Error())
+			return err
+		}
+
+		time.Sleep(time.Duration(duration) * time.Second)
+
+		return nil
+	})
+}
+
+type SleepPropertyInspector struct {
+	Settings SleepPropertyInspectorSettings `json:"settings"`
+}
+type SleepPropertyInspectorSettings struct {
+	Duration string `json:"sleepDuration"`
 }
 
 type ShutterPropertyInspectorSettings struct {

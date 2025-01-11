@@ -3,7 +3,7 @@
     {
       "Name": "Left-Half",
       "Icon": "images/left-half",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.left-half",
       "States": [{
         "Image": "images/left-half",
@@ -16,7 +16,7 @@
     {
       "Name": "Right-Half",
       "Icon": "images/right-half",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.right-half",
       "States": [{
         "Image": "images/right-half",
@@ -29,7 +29,7 @@
     {
       "Name": "Top-Left",
       "Icon": "images/top-left",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.top-left",
       "States": [{
         "Image": "images/top-left",
@@ -42,7 +42,7 @@
     {
       "Name": "Top-Right",
       "Icon": "images/top-right",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.top-right",
       "States": [{
         "Image": "images/top-right",
@@ -55,7 +55,7 @@
     {
       "Name": "Bottom-Left",
       "Icon": "images/bottom-left",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.bottom-left",
       "States": [{
         "Image": "images/bottom-left",
@@ -68,7 +68,7 @@
     {
       "Name": "Bottom-Right",
       "Icon": "images/bottom-right",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.bottom-right",
       "States": [{
         "Image": "images/bottom-right",
@@ -81,7 +81,7 @@
     {
       "Name": "First-Third",
       "Icon": "images/first-third",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.first-third",
       "States": [{
         "Image": "images/first-third",
@@ -94,7 +94,7 @@
     {
       "Name": "Center-Third",
       "Icon": "images/center-third",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.center-third",
       "States": [{
         "Image": "images/center-third",
@@ -107,7 +107,7 @@
     {
       "Name": "Last-Third",
       "Icon": "images/last-third",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.last-third",
       "States": [{
         "Image": "images/last-third",
@@ -120,7 +120,7 @@
     {
       "Name": "Top-Left-Sixth",
       "Icon": "images/top-left-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.top-left-sixth",
       "States": [{
         "Image": "images/top-left-sixth",
@@ -133,7 +133,7 @@
     {
       "Name": "Top-Center-Sixth",
       "Icon": "images/top-center-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.top-center-sixth",
       "States": [{
         "Image": "images/top-center-sixth",
@@ -146,7 +146,7 @@
     {
       "Name": "Top-Right-Sixth",
       "Icon": "images/top-right-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.top-right-sixth",
       "States": [{
         "Image": "images/top-right-sixth",
@@ -159,7 +159,7 @@
     {
       "Name": "Bottom-Left-Sixth",
       "Icon": "images/bottom-left-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.bottom-left-sixth",
       "States": [{
         "Image": "images/bottom-left-sixth",
@@ -172,7 +172,7 @@
     {
       "Name": "Bottom-Center-Sixth",
       "Icon": "images/bottom-center-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.bottom-center-sixth",
       "States": [{
         "Image": "images/bottom-center-sixth",
@@ -185,7 +185,7 @@
     {
       "Name": "Bottom-Right-Sixth",
       "Icon": "images/bottom-right-sixth",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.rectangle.bottom-right-sixth",
       "States": [{
         "Image": "images/bottom-right-sixth",
@@ -198,7 +198,7 @@
     {
       "Name": "Google Meet Active",
       "Icon": "images/google-meet-doodle",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.google-meet.find-tab",
       "States": [{
         "Image": "images/google-meet-doodle",
@@ -211,7 +211,7 @@
     {
       "Name": "Window Shutter Open",
       "Icon": "images/shutter-open",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-open",
       "PropertyInspectorPath": "actions/shutter_open.html",
       "States": [{
@@ -225,7 +225,7 @@
     {
       "Name": "Window Shutter Stop",
       "Icon": "images/shutter-stop",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-stop",
       "PropertyInspectorPath": "actions/shutter_stop.html",
       "States": [{
@@ -239,7 +239,7 @@
     {
       "Name": "Window Shutter Close",
       "Icon": "images/shutter-close",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-close",
       "PropertyInspectorPath": "actions/shutter_close.html",
       "States": [{
@@ -253,7 +253,7 @@
     {
       "Name": "Window Shutter Favourite",
       "Icon": "images/shutter-favourite",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "UUID": "com.onamish.streamdeck-plugins-jacobfg.shutter-favourite",
       "PropertyInspectorPath": "actions/shutter_favourite.html",
       "States": [{
@@ -261,6 +261,34 @@
         "TitleAlignment": "middle",
         "FontSize": "11",
         "Title": "Window Shutter Favourite",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Sleep",
+      "Icon": "images/sleep",
+      "SupportedInMultiActions": true,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.sleep",
+      "PropertyInspectorPath": "actions/sleep.html",
+      "States": [{
+        "Image": "images/sleep",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Sleep",
+        "ShowTitle": false
+      }]
+    },
+    {
+      "Name": "Audio",
+      "Icon": "images/sleep",
+      "SupportedInMultiActions": true,
+      "UUID": "com.onamish.streamdeck-plugins-jacobfg.audio",
+      "PropertyInspectorPath": "actions/audio.html",
+      "States": [{
+        "Image": "images/sleep",
+        "TitleAlignment": "middle",
+        "FontSize": "11",
+        "Title": "Audio",
         "ShowTitle": false
       }]
     }
