@@ -65,3 +65,6 @@ release
 
 # End of https://www.gitignore.io/api/go,windows,visualstudiocode
 /streamdeck-*
+
+# npm
+node_modules/

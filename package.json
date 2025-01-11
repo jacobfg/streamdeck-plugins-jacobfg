@@ -1,0 +1,11 @@
+{
+  "name": "streamdeck-plugins-jacobfg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "github.com:jacobfg/streamdeck-plugins-jacobfg",
+  "author": "Jacob Fleming-Gale <10949267+jacobfg@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@elgato/cli": "1.1.0"
+  }
+}

@@ -36,4 +36,4 @@ logs:
 release: sdplugin
 	rm -rf $(RELEASEDIR)
 	mkdir $(RELEASEDIR)
-	DistributionTool -b -i $(SDPLUGINDIR) -o $(RELEASEDIR)
+	./node_modules/.bin/streamdeck pack $(SDPLUGINDIR) --output $(RELEASEDIR)

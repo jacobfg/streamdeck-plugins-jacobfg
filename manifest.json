@@ -8,7 +8,7 @@
       "States": [{
         "Image": "images/left-half",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Left-Half",
         "ShowTitle": false
       }]
@@ -21,7 +21,7 @@
       "States": [{
         "Image": "images/right-half",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Right-Half",
         "ShowTitle": false
       }]
@@ -34,7 +34,7 @@
       "States": [{
         "Image": "images/top-left",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Top-Left",
         "ShowTitle": false
       }]
@@ -47,7 +47,7 @@
       "States": [{
         "Image": "images/top-right",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Top-Right",
         "ShowTitle": false
       }]
@@ -60,7 +60,7 @@
       "States": [{
         "Image": "images/bottom-left",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Bottom-Left",
         "ShowTitle": false
       }]
@@ -73,7 +73,7 @@
       "States": [{
         "Image": "images/bottom-right",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Bottom-Right",
         "ShowTitle": false
       }]
@@ -86,7 +86,7 @@
       "States": [{
         "Image": "images/first-third",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "First-Third",
         "ShowTitle": false
       }]
@@ -99,7 +99,7 @@
       "States": [{
         "Image": "images/center-third",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Center-Third",
         "ShowTitle": false
       }]
@@ -112,7 +112,7 @@
       "States": [{
         "Image": "images/last-third",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Last-Third",
         "ShowTitle": false
       }]
@@ -125,7 +125,7 @@
       "States": [{
         "Image": "images/top-left-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Top-Left-Sixth",
         "ShowTitle": false
       }]
@@ -138,7 +138,7 @@
       "States": [{
         "Image": "images/top-center-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Top-Center-Sixth",
         "ShowTitle": false
       }]
@@ -151,7 +151,7 @@
       "States": [{
         "Image": "images/top-right-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Top-Right-Sixth",
         "ShowTitle": false
       }]
@@ -164,7 +164,7 @@
       "States": [{
         "Image": "images/bottom-left-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Bottom-Left-Sixth",
         "ShowTitle": false
       }]
@@ -177,7 +177,7 @@
       "States": [{
         "Image": "images/bottom-center-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Bottom-Center-Sixth",
         "ShowTitle": false
       }]
@@ -190,7 +190,7 @@
       "States": [{
         "Image": "images/bottom-right-sixth",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Bottom-Right-Sixth",
         "ShowTitle": false
       }]
@@ -203,7 +203,7 @@
       "States": [{
         "Image": "images/google-meet-doodle",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Googel Meet Active",
         "ShowTitle": false
       }]
@@ -217,7 +217,7 @@
       "States": [{
         "Image": "images/shutter-open",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Window Shutter Open",
         "ShowTitle": false
       }]
@@ -231,7 +231,7 @@
       "States": [{
         "Image": "images/shutter-stop",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Window Shutter Stop",
         "ShowTitle": false
       }]
@@ -245,7 +245,7 @@
       "States": [{
         "Image": "images/shutter-close",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Window Shutter Close",
         "ShowTitle": false
       }]
@@ -259,7 +259,7 @@
       "States": [{
         "Image": "images/shutter-favourite",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Window Shutter Favourite",
         "ShowTitle": false
       }]
@@ -273,7 +273,7 @@
       "States": [{
         "Image": "images/sleep",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Sleep",
         "ShowTitle": false
       }]
@@ -287,7 +287,7 @@
       "States": [{
         "Image": "images/sleep",
         "TitleAlignment": "middle",
-        "FontSize": "11",
+        "FontSize": 11,
         "Title": "Audio",
         "ShowTitle": false
       }]
@@ -295,22 +295,23 @@
   ],
   "SDKVersion": 2,
   "Author": "JacobFG",
-  "Category": "Custom Plugins",
+  "Category": "com.onamish.streamdeck-plugins-jacobfg",
   "CategoryIcon": "images/jacobfg",
   "Icon": "images/jacobfg",
   "CodePath": "streamdeck-plugins-jacobfg",
   "Description": "Some description of what your plugin does",
-  "Name": "JacobFG Plugins",
+  "Name": "com.onamish.streamdeck-plugins-jacobfg",
   "URL": "https://github.com/jacobfg/streamdeck-plugins-jacobfg",
   "Version": "0.1",
   "OS": [
     {
       "Platform": "mac",
-      "MinimumVersion" : "10.11"
+      "MinimumVersion" : "10.14"
     }
   ],
   "Software":
     {
-      "MinimumVersion" : "4.1"
-    }
+      "MinimumVersion" : "6.5"
+    },
+  "UUID": "com.onamish.streamdeck-plugins-jacobfg"
 }
